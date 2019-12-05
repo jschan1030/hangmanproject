@@ -24,6 +24,20 @@ class DatabaseAdaptor {
         $stmt = $this->DB->prepare("UPDATE accounts SET " .$category . "= " . $token . "where 'id'=".$id.";");
         $stmt->execute();
     }
+    public function createID() {
+        $newid = random_int(10000,99999);
+        $stmt = $this->DB->prepare("SELECT * FROM accounts where 'id'=" . $newid . ";");
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //check for uniqueness?
+        return $newid;
+    }
+    public function newCredentials($username, $password, $email) {
+        $id = createID();
+        $score = 0;
+        $stmt = $this->DB->prepare("INSERT INTO accounts (".$id.",".$username.",".$email.",".$score.",".$password.";");
+        $stmt->execute();
+    }
     
     // WORDS_PHRASES FUNCTIONS
     public function getWordPhrase ($difficulty, $word_or_phrase) {
