@@ -20,14 +20,31 @@ function checkCredentials($username, $password){
         return true;
     }
 }
+
+function change() {
+
+}
+//Log In
+function logIn($username, $password) {
+    if (checkCredentials == true) {
+        echo 'golden';
+    }
+    else {
+        echo 'incorrect credentials';
+    }
+}
+
+//Register
     //new user registration
 function newUser($username, $password) {
     //adds a new user to the accounts table in hangman database
     $DBA->newCredentials($username, $password, $email);
 }
-//Log In
-
-//Register
-
 //Game
+
+function addtoWords_Phrases($entry, $type,$hint_entry, $id) {
+    $DBA->addWordPhrase();//FINISH THIS
+}
+
+
 ?>
