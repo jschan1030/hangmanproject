@@ -1,7 +1,7 @@
 <!--Joseph Chan, Jazmyne Bradley-->
 <!DOCTYPE html>
 <html>
-<title></title>
+<title>Welcome to Hangman!</title>
 
 <head>
     <meta charset="UTF-8">
@@ -11,17 +11,19 @@
 <body>
     <h3>Welcome to Hangman!</h3>
     <br>
-    <br>
     <b>Please Login</b>
+    <br>
     <form action="controller.php" method="post">
     Username<input type="text" id="user" name = "username" required/> 
     <br>
     Password<input type="password" id="password" name = "password" required/>
+    <br>
     <input type="submit" id = "login" name = "login" value = "Login"/>
-    <input type = "submit" id = "register" name = "register" value = "Register"/>
-    <!-- add ref="<php page>" to buttons?--> 
-
     </form>
+    <a href = "./register.html"><button>Register</button></a>
+<!-- <input type = "submit" onclick="href=register.php" id = "register" name = "register" value = "Register"/>
+     add ref="<php page>" to buttons? --> 
+  
 <script>
 
 </script>
