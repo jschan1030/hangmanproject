@@ -7,7 +7,8 @@ $DBA = new DatabaseAdaptor();
 $state = $_POST ['var'];
 $username = $_POST ['username'];
 $password = $_POST ['password'];
-$email = $_POST ['emal'];
+$user_id = $_POST ['id'];
+$email = $_POST ['email'];
 //Accounts
     //logging in
 function checkCredentials($username, $password){
@@ -21,9 +22,6 @@ function checkCredentials($username, $password){
     }
 }
 
-function change() {
-
-}
 //Log In
 function logIn($username, $password) {
     if (checkCredentials == true) {
@@ -33,16 +31,39 @@ function logIn($username, $password) {
         echo 'incorrect credentials';
     }
 }
-
 //Register
     //new user registration
-function newUser($username, $password) {
+function newUser($username, $password, $email) {
     //adds a new user to the accounts table in hangman database
-    $DBA->newCredentials($username, $password, $email);
+    $table = "accounts";
+    $category = "username";
+    $matches = $DBA->checkUniqueness($table, $category, $username);
+    if (empty($matches)) {
+        $DBA->newCredentials($username, $password, $email);
+        echo "new user information added successfuly";
+    }
+    else {
+        echo "new user information NOT added successfully";
+    }
 }
+
+function changeInfo() {
+
+}
+
 //Game
 
-function addtoWords_Phrases($entry, $type,$hint_entry, $id) {
+function addtoWords_Phrases($difficulty, $entry, $type,$hint_entry, $id) {
+    $table = "words_phrases";
+    $category = "entry";
+    $matches = $DBA->checkUniqueness($table, $category, $entry);
+    if (empty($matches)) {
+        $DBA->addWordPhrase($difficulty, $type, $entry, $hint_entry, $id); 
+        echo "new word/phrase accepted";
+    }
+    else {
+        echo "new word/phrase NOT accepted";
+    }
     $DBA->addWordPhrase();//FINISH THIS
 }
 

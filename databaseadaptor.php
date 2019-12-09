@@ -32,6 +32,11 @@ class DatabaseAdaptor {
         //check for uniqueness?
         return $newid;
     }
+    public function checkUniqueness($table, $category, $token) {
+        $stmt = $this->DB->prepare("SELECT * FROM " . $table . " WHERE " . $category . "=".$token.";");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function newCredentials($username, $password, $email) {
         $id = createID();
         $score = 0;
