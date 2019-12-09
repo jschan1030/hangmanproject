@@ -15,8 +15,8 @@ class DatabaseAdaptor {
         }
     } // . . . continued
     // ACCOUNT DETAILS FUNCTIONS
-    public function getCredentials ($username, $password) {
-        $stmt = $this->DB->prepare( "SELECT * FROM accounts where username = ". $username . " AND password = " .$password);
+    public function getCredentials ($username) {
+        $stmt = $this->DB->prepare( "SELECT * FROM accounts where username = ". $username . ";");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
