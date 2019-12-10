@@ -30,7 +30,7 @@ class DatabaseAdaptor {
             $add = $this->DB->prepare("INSERT INTO accounts VALUES(".rand(00000, 99999).", '".$username."','".$email."', 0,'".$pass."')");
         $add->execute();
       
-            echo header("location: view.html");
+            echo header("location: home.php");
         }
     
         catch(PDOException $e){
