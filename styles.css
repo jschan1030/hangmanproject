@@ -40,3 +40,10 @@ p{
      
  
  }
+
+ .hangmangame {
+     border: solid;
+     background: lightgray;
+     width: 20%;
+     height: 20%;
+ }
